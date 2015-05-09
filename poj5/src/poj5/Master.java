@@ -39,8 +39,14 @@ public class Master {
 			String instanceId = inst.getInstanceID();
 			AuthInfo credentials = new AuthInfo(user, ByteBuffer.wrap(password.getBytes()), instanceId);
 			Connector conn = inst.getConnector(credentials);
-			conn.tableOperations().create("TABLEA");
+			conn.tableOperations().create("predict");
 			SecurityOperationsImpl soi = new SecurityOperationsImpl(inst, credentials);
+			
+			//@To-Do get the info from the twitter api
+			// rowID would be the name of the team and colFam would be the  type of info we are storing
+			
+			
+			
 			Text rowID = new Text("row1");
 			Text colFam = new Text("myColFam");
 			Text colQual = new Text("myColQual");
