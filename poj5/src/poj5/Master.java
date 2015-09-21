@@ -41,12 +41,6 @@ public class Master {
 			Connector conn = inst.getConnector(credentials);
 			conn.tableOperations().create("predict");
 			SecurityOperationsImpl soi = new SecurityOperationsImpl(inst, credentials);
-			
-			//@To-Do get the info from the twitter api
-			// rowID would be the name of the team and colFam would be the  type of info we are storing
-			
-			
-			
 			Text rowID = new Text("row1");
 			Text colFam = new Text("myColFam");
 			Text colQual = new Text("myColQual");
@@ -56,8 +50,6 @@ public class Master {
 		    BatchWriter wr = conn.createBatchWriter("TABLEA", 10000000, 10000, 5);		    
 			Mutation mutation = new Mutation(rowID);
 			mutation.put(colFam, colQual, colVis, timestamp, value);
-			
-
 			wr.addMutation(mutation);
 			wr.close();
 		} catch (AccumuloException e) {
