@@ -1,4 +1,4 @@
-package poj5;
+package proj5;
 
 
 import java.io.IOException;
